@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": ["docker-compose"],
+  "docker-compose": {
+    "fileMatch": ["(^|/)docker-compose\\.(ya?ml)$"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["docker-compose"],
+      "groupName": "all-docker-images",
+      "groupSlug": "docker-images",
+      "automerge": false
+    }
+  ],
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 10,
+  "schedule": ["before 7am on monday"] 
+}
+
