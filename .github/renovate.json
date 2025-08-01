@@ -16,7 +16,6 @@
     }
   ],
   "prHourlyLimit": 5,
-  "prConcurrentLimit": 10,
-  "schedule": ["before 7am on monday"] 
+  "prConcurrentLimit": 10
 }
 
