@@ -24,7 +24,6 @@ services:
       - "9001:9001"
     volumes:
       - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
 
   zigbee2mqtt:
     container_name: zigbee2mqtt

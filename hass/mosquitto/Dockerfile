@@ -1,5 +1,7 @@
 FROM eclipse-mosquitto:2.0
 
+USER mosquitto
+
 # Set build arguments for credentials
 ARG MQTT_USERNAME=mqttuser
 ARG MQTT_PASSWORD
@@ -13,5 +15,4 @@ RUN echo "${MQTT_USERNAME}:${MQTT_PASSWORD}" > /tmp/passwd && \
     mv /tmp/passwd /mosquitto/config/passwd && \
     chmod 600 /mosquitto/config/passwd
 
-USER mosquitto
 CMD ["mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
