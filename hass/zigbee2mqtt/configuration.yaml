@@ -1,38 +1,26 @@
-# Zigbee2MQTT configuration file
-
-# MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://mosquitto:1883
-  user: ${MQTT_USERNAME:-mqttuser}
-  password: ${MQTT_PASSWORD}
-
-# Serial settings (adjust according to your Zigbee adapter)
 serial:
   port: /dev/ttyACM0
-  # adapter: auto  # or specific adapter like 'zstack' for CC2652 based adapters
-
-# Frontend settings
 frontend:
   port: 8080
   host: 0.0.0.0
-
-# Logging
 advanced:
+  channel: 11
+  network_key: 'GENERATE'
+  pan_id: 'GENERATE'
+  ext_pan_id: 'GENERATE'
   log_level: info
   log_output:
     - console
-
-# Homeassistant integration
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
 homeassistant: true
-
-# Enable permit join
 permit_join: false
-
-# Device options
 device_options:
   retain: false
-
-# Experimental features
+  legacy: false
 experimental:
   new_api: true
