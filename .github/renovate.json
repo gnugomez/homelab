@@ -3,13 +3,16 @@
   "extends": [
     "config:recommended"
   ],
-  "enabledManagers": ["docker-compose"],
+  "enabledManagers": ["docker-compose", "dockerfile"],
   "docker-compose": {
     "fileMatch": ["(^|/)docker-compose\\.(ya?ml)$"]
   },
+  "dockerfile": {
+    "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"]
+  },
   "packageRules": [
     {
-      "matchManagers": ["docker-compose"],
+      "matchManagers": ["docker-compose", "dockerfile"],
       "groupName": "all-docker-images",
       "groupSlug": "docker-images",
       "automerge": false
