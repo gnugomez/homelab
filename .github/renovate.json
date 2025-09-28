@@ -3,16 +3,27 @@
   "extends": [
     "config:recommended"
   ],
-  "enabledManagers": ["docker-compose", "dockerfile"],
+  "enabledManagers": [
+    "docker-compose",
+    "dockerfile"
+  ],
   "docker-compose": {
-    "fileMatch": ["(^|/)docker-compose\\.(ya?ml)$"]
+    "managerFilePatterns": [
+      "/(^|/)docker-compose\\.(ya?ml)$/"
+    ]
   },
   "dockerfile": {
-    "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"]
+    "managerFilePatterns": [
+      "/(^|/)Dockerfile$/",
+      "/(^|/)Dockerfile\\.[^/]*$/"
+    ]
   },
   "packageRules": [
     {
-      "matchManagers": ["docker-compose", "dockerfile"],
+      "matchManagers": [
+        "docker-compose",
+        "dockerfile"
+      ],
       "groupName": "all-docker-images",
       "groupSlug": "docker-images",
       "automerge": false
@@ -21,4 +32,3 @@
   "prHourlyLimit": 5,
   "prConcurrentLimit": 10
 }
-
