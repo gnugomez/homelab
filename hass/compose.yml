@@ -3,7 +3,7 @@ services:
     container_name: homeassistant
     image: ghcr.io/home-assistant/home-assistant:2025.11.2
     network_mode: host
-    privileged: true  # Needed for some integrations like Bluetooth
+    privileged: true # Needed for some integrations like Bluetooth
     restart: unless-stopped
     volumes:
       - ./config:/config
@@ -42,7 +42,7 @@ services:
       - ${ZIGBEE_DEVICE:-/dev/ttyACM0}:/dev/ttyACM0
     depends_on:
       - mosquitto
-  
+
   node-red:
     image: nodered/node-red:4.1
     restart: unless-stopped
@@ -55,3 +55,13 @@ services:
     depends_on:
       - homeassistant
       - zigbee2mqtt
+
+  ring-mqtt:
+    container_name: ring-mqtt
+    image: tsightler/ring-mqtt:5.8.1
+    ports:
+      - 8554:8554
+    volumes:
+      - ./ring-mqtt/data:/data
+    depends_on:
+      - mosquitto
