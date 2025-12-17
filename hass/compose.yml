@@ -1,7 +1,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:2025.11.3
+    image: ghcr.io/home-assistant/home-assistant:2025.12.3
     network_mode: host
     privileged: true # Needed for some integrations like Bluetooth
     restart: unless-stopped
@@ -27,7 +27,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:2.7.0
+    image: koenkk/zigbee2mqtt:2.7.1
     restart: unless-stopped
     volumes:
       - ./zigbee2mqtt:/app/data
@@ -58,7 +58,7 @@ services:
 
   ring-mqtt:
     container_name: ring-mqtt
-    image: tsightler/ring-mqtt:5.8.1
+    image: tsightler/ring-mqtt:5.9.2
     ports:
       - 8554:8554
     volumes:
