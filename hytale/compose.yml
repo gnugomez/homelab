@@ -1,0 +1,11 @@
+services:
+  hytale:
+    build: .
+    ports:
+      - "5520:5520/udp"
+    volumes:
+      - ./.cache:/home/hytale/server/.cache
+      - ./logs:/home/hytale/server/logs
+      - ./mods:/home/hytale/server/mods
+      - ./universe:/home/hytale/server/universe
+    restart: unless-stopped
