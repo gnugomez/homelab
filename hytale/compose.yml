@@ -9,3 +9,5 @@ services:
       - ./mods:/home/hytale/server/mods
       - ./universe:/home/hytale/server/universe
     restart: unless-stopped
+    tty: true
+    stdin_open: true
