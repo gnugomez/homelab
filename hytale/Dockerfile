@@ -22,7 +22,7 @@ RUN unzip -q -o *.zip -d output && \
     cp output/Assets.zip .
 
 # Second stage: Final runtime image
-FROM eclipse-temurin:25-jre-jammy
+FROM eclipse-temurin:25.0.1_8-jre-jammy
 
 # Create a non-root user to run the server
 RUN useradd -m -s /bin/bash hytale
