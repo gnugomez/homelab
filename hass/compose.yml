@@ -44,7 +44,7 @@ services:
       - mosquitto
 
   node-red:
-    image: nodered/node-red:4.1
+    image: nodered/node-red:5.0
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
